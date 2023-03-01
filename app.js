@@ -1,0 +1,15 @@
+const express=require("express")
+const app=express()
+const PORT=3000
+const cardsRouter=require("./routes/cards")
+const usersRouter=require("./routes/users")
+const userAuth=require("./routes/auth")
+require("dotenv").config()
+const {connect}=require("./db")
+connect()
+app.use(express.json())
+app.use("/users",usersRouter)
+app.use("/cards",cardsRouter)
+app.use("/auth",userAuth)
+
+app.listen(PORT,()=>{console.log(`listening on port ${PORT}`)})

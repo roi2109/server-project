@@ -1,0 +1,61 @@
+@local=http://localhost:3000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiaXoiOnRydWUsIl9pZCI6IjYzZmY4MWY2YTRkODQ3ZjQ5OTBiNDI3OCIsImlhdCI6MTY3NzY5MDI3OX0.0HZHO2WKxRqM_cROdAMk24HuJdbKxTuup2oypZKIkW0
+
+
+
+POST {{local}}/users
+Content-Type: application/json
+
+ {
+"name":"roidsada gal ",
+"email":"roi241421@gmail.com",
+"biz":true,
+"password":"roiroigal"
+}
+###
+GET {{local}}/users
+Content-Type: application/json
+
+{
+    "email":"ab"
+}
+###
+POST {{local}}/cards
+x-auth-token:{{token}}
+Content-Type: application/json
+
+
+
+{
+"bizName":"Card6",
+"bizAddress":"Hashalom 525",
+"bizDescription":"das",
+"bizPhone":"121121121"
+}
+###
+DELETE {{local}}/cards/63ffb6bed74b94ce8a1949c4
+x-auth-token:{{token}}
+Content-Type: application/json
+###
+PUT {{local}}/cards/63ff8215a4d847f4990b427d
+x-auth-token:{{token}}
+Content-Type: application/json
+
+{
+"bizName":"sfaas",
+"bizAddress":"Hashalom 1",
+"bizDescription":"dsadsadafafa",
+"bizPhone":"555555555"
+}
+###
+POST {{local}}/auth/
+Content-Type: application/json
+
+{
+    "email":"roi@gmail.com",
+    "password":"roiroigal"
+}
+###
+GET {{local}}/cards
+x-auth-token:{{token}}
+Content-Type: application/json
